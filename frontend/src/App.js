@@ -1,5 +1,11 @@
+import MainContainer from "./components/MainContainer";
+
 const App = () => {
-  return <>hello world</>;
+  return (
+    <>
+      <MainContainer />
+    </>
+  );
 };
 
 export default App;
