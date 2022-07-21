@@ -14,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background-color: red;
+  background-color: blue;
 }
 .contentWrapper {
   min-height: 77vh;
@@ -26,9 +26,10 @@
   align-items: center;
   justify-content: start;
 
-  background-color: yellow;
+  background-color: blue;
 }
 .firstRow {
+  flex: 1;
   display: flex;
   color: white;
   justify-content: space-around;
@@ -38,6 +39,7 @@
   background-color: blue;
 }
 .secondRow {
+  flex: 1;
   display: flex;
   color: white;
   justify-content: center;
@@ -63,4 +65,91 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+}
+.thirdRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: space-around;
+  width: 80%;
+
+  background-color: blue;
+}
+.fourthRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: space-around;
+  width: 80%;
+  font-size: 2em;
+  background-color: blue;
+}
+
+.fifthRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: space-around;
+  width: 80%;
+
+  background-color: blue;
+}
+.sixthRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+
+  background-color: blue;
+}
+.sixthRowThird {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.seventhRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: space-around;
+  width: 80%;
+
+  background-color: blue;
+}
+.eightRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+
+  background-color: blue;
+}
+.ninethRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+  max-height: 1px;
+  background-color: white;
+}
+
+.tenthRow {
+  flex: 1;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: space-around;
+  width: 80%;
+  background-color: blue;
 }
