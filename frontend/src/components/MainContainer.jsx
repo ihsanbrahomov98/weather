@@ -218,7 +218,7 @@ const MainContainer = () => {
             </div>
             <div className="eightRow">HOURLY FORECAST</div>
             <div className="ninethRow">
-              <div>-</div>
+              <div></div>
             </div>
             <div className="tenthRow">
               <div className="tenthRowColumn">
@@ -247,9 +247,9 @@ const MainContainer = () => {
                 <div className="tenthRowColumnDegree">04:00</div>
               </div>
             </div>
-            <div className="eightRow">HOURLY FORECAST</div>
+            <div className="eightRow">DAILY FORECAST</div>
             <div className="ninethRow">
-              <div>-</div>
+              <div></div>
             </div>
             <div className="tenthRow">
               <div className="tenthRowColumn">
