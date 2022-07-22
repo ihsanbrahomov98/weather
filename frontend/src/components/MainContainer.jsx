@@ -3,7 +3,10 @@ import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
+import OpacityIcon from "@mui/icons-material/Opacity";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import AirIcon from "@mui/icons-material/Air";
+import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import "./main.css";
 
 const MainContainer = () => {
@@ -147,36 +150,71 @@ const MainContainer = () => {
               {data.weather ? <p>{data.weather[0].description}</p> : null}
             </div>
             <div className="sixthRow">
-              <div className="sixthRowFirst">1</div>
+              <div className="sixthRowFirst">
+                <div className="sixthRowCircle"></div>
+              </div>
               <div className="sixthRowTwo">
                 {" "}
                 {data.main ? <p>{data.main.temp.toFixed()}°</p> : null}{" "}
               </div>
               <div className="sixthRowThird">
                 <div className="sixthRowThirdFirstROw">
-                  <div>
-                    <ThermostatIcon fontSize="small" />
-                    <div>
-                      {" "}
-                      {data.main ? (
-                        <p>{data.main.feels_like.toFixed()}°</p>
-                      ) : null}{" "}
-                    </div>
+                  <ThermostatIcon fontSize="small" />
+                  <div style={{ paddingLeft: "3%", fontWeight: 700 }}>
+                    {" "}
+                    Really feel:
+                  </div>
+                  <div style={{ fontWeight: 700 }}>
+                    {data.main ? (
+                      <p> {data.main.feels_like.toFixed()}°</p>
+                    ) : null}{" "}
                   </div>
                 </div>
-                <div>B</div>
-                <div>C</div>
+                <div className="sixthRowThirdFirstROw">
+                  <OpacityIcon fontSize="small" />
+                  <div style={{ fontWeight: 700 }}>Humidity:</div>
+                  <div style={{ fontWeight: 700 }}>
+                    {data.main ? <p>{data.main.humidity.toFixed()}%</p> : null}{" "}
+                  </div>
+                </div>
+                <div
+                  style={{ paddingLeft: "5%" }}
+                  className="sixthRowThirdFirstROw"
+                >
+                  <AirIcon fontSize="small" />
+                  <div style={{ paddingLeft: "4%", fontWeight: 700 }}>
+                    Wind speed:
+                  </div>
+
+                  <div style={{ fontWeight: 700 }}>
+                    {data.main ? <p> {data.wind.speed.toFixed()}%</p> : null}{" "}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="seventhRow">
-              <LightModeIcon />
-              <span>Rise: 04:50 |</span>
-              <LightModeIcon />
-              <span>Rise: 04:50 |</span>
-              <LightModeIcon />
-              <span>Rise: 04:50 |</span>
-              <LightModeIcon />
-              <span>Rise: 04:50 |</span>
+              <LightModeIcon fontSize="small" />
+              <span>
+                Rise: {data.main ? <span> {data.sys.sunrise}</span> : null} |
+              </span>
+              <WbTwilightIcon fontSize="small" />
+              <span>Set: 04:50 |</span>
+              <LightModeIcon fontSize="small" />
+              <span>
+                Rise:{" "}
+                {data.main ? (
+                  <span> {data.main.temp_max.toFixed()}°</span>
+                ) : null}{" "}
+                |
+              </span>
+              <LightModeIcon fontSize="small" />
+              <span>
+                Rise:{" "}
+                {data.main ? (
+                  <span> {data.main.temp_min.toFixed()}°</span>
+                ) : null}{" "}
+                |
+              </span>
             </div>
             <div className="eightRow">HOURLY FORECAST</div>
             <div className="ninethRow">
@@ -185,28 +223,28 @@ const MainContainer = () => {
             <div className="tenthRow">
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnIcon">icon</div>
+                <div className="tenthRowColumnDegree">04:00</div>
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnIcon">icon</div>
+                <div className="tenthRowColumnDegree">04:00</div>
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnIcon">icon</div>
+                <div className="tenthRowColumnDegree">04:00</div>
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnIcon">icon</div>
+                <div className="tenthRowColumnDegree">04:00</div>
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnIcon">icon</div>
+                <div className="tenthRowColumnDegree">04:00</div>
               </div>
             </div>
             <div className="eightRow">HOURLY FORECAST</div>

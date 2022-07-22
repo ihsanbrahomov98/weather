@@ -113,11 +113,19 @@
   align-items: center;
   width: 80%;
 }
+.sixthRowCircle {
+  height: 25px;
+  width: 25px;
+  background-color: #e76140;
+  border-radius: 50%;
+  display: inline-block;
+}
 .sixthRowTwo {
   font-size: 2rem;
 }
 .sixthRowThird {
   display: flex;
+  font-size: 0.7rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -125,13 +133,16 @@
 .sixthRowThirdFirstROw {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  width: 110%;
 }
 .seventhRow {
   flex: 1;
   display: flex;
+  font-size: 0.7rem;
   color: white;
   justify-content: space-around;
-  align-items: space-around;
+  align-items: center;
   width: 80%;
 }
 .eightRow {
