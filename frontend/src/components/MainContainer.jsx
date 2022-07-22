@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -8,8 +8,19 @@ import "./main.css";
 const MainContainer = () => {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("plovdiv");
+  const [loadNewData, setLoadNewData] = useState(false);
   const API_KEY = "&appid=ce31168210cef5b45f6882a250d98bd3";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}${API_KEY}`;
+
+  useEffect(() => {
+    const getAxiosData = () => {
+      axios.get(url).then((response) => {
+        setData(response.data);
+        console.log(response.data);
+      });
+    };
+    getAxiosData();
+  }, [loadNewData]);
 
   const getData = (e) => {
     if (e.key === "Enter") {
@@ -17,6 +28,7 @@ const MainContainer = () => {
         setData(response.data);
         console.log(response.data);
       });
+      setLocation("");
     }
   };
 
@@ -26,11 +38,46 @@ const MainContainer = () => {
         <div className="containerWrapper">
           <div className="contentWrapper">
             <div className="firstRow">
-              <span>Tokyo</span>
-              <span>Sydney</span>
-              <span>Tokyo</span>
-              <span>Sydney</span>
-              <span>Tokyo</span>
+              <span
+                onClick={() => {
+                  setLocation("sofia");
+                  setLoadNewData(!loadNewData);
+                }}
+              >
+                Sofia
+              </span>
+              <span
+                onClick={() => {
+                  setLocation("plovdiv");
+                  setLoadNewData(!loadNewData);
+                }}
+              >
+                Plovdiv
+              </span>
+              <span
+                onClick={() => {
+                  setLocation("varna");
+                  setLoadNewData(!loadNewData);
+                }}
+              >
+                Varna
+              </span>
+              <span
+                onClick={() => {
+                  setLocation("burgas");
+                  setLoadNewData(!loadNewData);
+                }}
+              >
+                Burgas
+              </span>
+              <span
+                onClick={() => {
+                  setLocation("madan");
+                  setLoadNewData(!loadNewData);
+                }}
+              >
+                Madan
+              </span>
             </div>
             <div className="secondRow">
               <div className="inputIconAndInputWrapper">
@@ -43,7 +90,7 @@ const MainContainer = () => {
                 ></input>
                 <div className="secondRowIconWrapper">
                   <div
-                    onClick={() => getData()}
+                    onClick={() => getData({ key: "Enter" })}
                     className="secondRowSearchIcon"
                   >
                     {" "}
