@@ -1,3 +1,6 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
 .container {
   height: 100vh;
   width: 100vw;
@@ -14,7 +17,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background-color: blue;
+  background: linear-gradient(
+    150deg,
+    #0f6784,
+    #006687,
+    #00628f,
+    #005d9b,
+    #0055a5,
+    #004baa,
+    #0042ab,
+    #10388d
+  );
 }
 .contentWrapper {
   min-height: 77vh;
@@ -25,8 +38,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
-
-  background-color: blue;
 }
 .firstRow {
   flex: 1;
@@ -35,8 +46,6 @@
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
-
-  background-color: blue;
 }
 .secondRow {
   flex: 1;
@@ -44,25 +53,26 @@
   color: white;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  background-color: blue;
+  width: 120%;
 }
 .secondRowInput {
-  flex: 2;
+  flex: 3;
+  min-width: 90%;
 }
 .inputIconAndInputWrapper {
   display: flex;
 }
 .secondRowIconWrapper {
-  flex: 0.5;
-  justify-content: space-evenly;
+  flex: 0.8;
+  justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: row;
 }
 .secondRowDegreeWrapper {
-  flex: 0.5;
-  justify-content: space-evenly;
+  flex: 0.3;
+  justify-content: center;
+
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -74,8 +84,6 @@
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
-
-  background-color: blue;
 }
 .fourthRow {
   flex: 1;
@@ -85,32 +93,38 @@
   align-items: space-around;
   width: 80%;
   font-size: 2em;
-  background-color: blue;
 }
 
 .fifthRow {
   flex: 1;
+
   display: flex;
-  color: white;
+  color: cyan;
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
-  background-color: blue;
 }
 .sixthRow {
   flex: 1;
   display: flex;
   color: white;
+
   justify-content: space-around;
   align-items: center;
   width: 80%;
-  background-color: blue;
+}
+.sixthRowTwo {
+  font-size: 2rem;
 }
 .sixthRowThird {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.sixthRowThirdFirstROw {
+  display: flex;
+  flex-direction: row;
 }
 .seventhRow {
   flex: 1;
@@ -119,7 +133,6 @@
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
-  background-color: blue;
 }
 .eightRow {
   flex: 1;
@@ -128,7 +141,7 @@
   justify-content: start;
   align-items: center;
   width: 80%;
-  background-color: blue;
+
   padding-bottom: 2%;
 }
 .ninethRow {
@@ -151,7 +164,6 @@
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
-  background-color: blue;
 }
 .tenthRowColumn {
   display: flex;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ThermostatIcon from "@mui/icons-material/Thermostat";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import "./main.css";
 
@@ -9,8 +10,10 @@ const MainContainer = () => {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("plovdiv");
   const [loadNewData, setLoadNewData] = useState(false);
+  const [cyanDegree, setCyanDegree] = useState("cyan");
+  const [unit, setUnit] = useState("metric");
   const API_KEY = "&appid=ce31168210cef5b45f6882a250d98bd3";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}${API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}${API_KEY}&units=${unit}`;
 
   useEffect(() => {
     const getAxiosData = () => {
@@ -31,6 +34,11 @@ const MainContainer = () => {
       setLocation("");
     }
   };
+
+  const current = new Date();
+  const date = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()} ${current.getHours()} ${current.getMinutes()}  `;
 
   return (
     <>
@@ -90,38 +98,72 @@ const MainContainer = () => {
                 ></input>
                 <div className="secondRowIconWrapper">
                   <div
-                    onClick={() => getData({ key: "Enter" })}
+                    onClick={(e) => getData({ key: "Enter" })}
                     className="secondRowSearchIcon"
                   >
                     {" "}
-                    <SearchIcon />
+                    <SearchIcon fontSize="small" />
                   </div>
                 </div>
                 <div className="secondLocationOnIcon">
                   {" "}
-                  <LocationOnIcon />
+                  <LocationOnIcon fontSize="small" />
                 </div>
               </div>
               <div className="secondRowDegreeWrapper">
-                <div>C</div>
-                <div>F</div>
+                <div
+                  style={{ color: cyanDegree ? "white" : "cyan" }}
+                  onClick={() => {
+                    setUnit("metric");
+                    setCyanDegree(false);
+                    setLoadNewData(!loadNewData);
+                  }}
+                >
+                  °C |
+                </div>
+                <div
+                  onClick={() => {
+                    setUnit("imperial");
+                    setCyanDegree(true);
+                    setLoadNewData(!loadNewData);
+                  }}
+                  style={{
+                    paddingLeft: "2%",
+                    color: cyanDegree ? "cyan" : "white",
+                  }}
+                >
+                  °F
+                </div>
               </div>
             </div>
             <div className="thirdRow">
-              <p>Today is 21.07.2022 | Local time is 12:55</p>
+              <p>{date} </p>
             </div>
             <div className="fourthRow">
-              <p>Madan</p>
+              <p>{data.name}</p>
             </div>
             <div className="fifthRow">
               {" "}
-              <p>Clear</p>
+              {data.weather ? <p>{data.weather[0].description}</p> : null}
             </div>
             <div className="sixthRow">
               <div className="sixthRowFirst">1</div>
-              <div className="sixthRowTwo">2</div>
+              <div className="sixthRowTwo">
+                {" "}
+                {data.main ? <p>{data.main.temp.toFixed()}°</p> : null}{" "}
+              </div>
               <div className="sixthRowThird">
-                <div>A</div>
+                <div className="sixthRowThirdFirstROw">
+                  <div>
+                    <ThermostatIcon fontSize="small" />
+                    <div>
+                      {" "}
+                      {data.main ? (
+                        <p>{data.main.feels_like.toFixed()}°</p>
+                      ) : null}{" "}
+                    </div>
+                  </div>
+                </div>
                 <div>B</div>
                 <div>C</div>
               </div>

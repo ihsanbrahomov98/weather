@@ -1,0 +1,26 @@
+{
+  "coord": { "lon": 24.75, "lat": 42.15 },
+  "weather": [
+    { "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 309.33,
+    "feels_like": 307.4,
+    "temp_min": 309.33,
+    "temp_max": 309.33,
+    "pressure": 1013,
+    "humidity": 19,
+    "sea_level": 1013,
+    "grnd_level": 994
+  },
+  "visibility": 10000,
+  "wind": { "speed": 3.85, "deg": 9, "gust": 3.16 },
+  "clouds": { "all": 0 },
+  "dt": 1658505725,
+  "sys": { "country": "BG", "sunrise": 1658459036, "sunset": 1658512236 },
+  "timezone": 10800,
+  "id": 728193,
+  "name": "Plovdiv",
+  "cod": 200
+}
