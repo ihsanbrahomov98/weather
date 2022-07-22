@@ -50,10 +50,12 @@
 .secondRowInput {
   flex: 2;
 }
+.inputIconAndInputWrapper {
+  display: flex;
+}
 .secondRowIconWrapper {
   flex: 0.5;
   justify-content: space-evenly;
-
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -61,7 +63,6 @@
 .secondRowDegreeWrapper {
   flex: 0.5;
   justify-content: space-evenly;
-
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -94,7 +95,6 @@
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
-
   background-color: blue;
 }
 .sixthRow {
@@ -104,7 +104,6 @@
   justify-content: space-around;
   align-items: center;
   width: 80%;
-
   background-color: blue;
 }
 .sixthRowThird {
@@ -120,7 +119,6 @@
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
-
   background-color: blue;
 }
 .eightRow {
@@ -130,8 +128,8 @@
   justify-content: start;
   align-items: center;
   width: 80%;
-
   background-color: blue;
+  padding-bottom: 2%;
 }
 .ninethRow {
   flex: 1;
@@ -145,11 +143,19 @@
 }
 
 .tenthRow {
+  padding-top: 2%;
   flex: 1;
   display: flex;
+
   color: white;
   justify-content: space-around;
   align-items: space-around;
   width: 80%;
   background-color: blue;
+}
+.tenthRowColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-around;
 }
