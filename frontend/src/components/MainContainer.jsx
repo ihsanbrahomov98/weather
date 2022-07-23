@@ -148,6 +148,7 @@ const MainContainer = () => {
           <div className="contentWrapper">
             <div className="firstRow">
               <span
+                className="firstRowItem"
                 onClick={() => {
                   setLocation("sofia");
                   setLoadNewData(!loadNewData);
@@ -156,6 +157,7 @@ const MainContainer = () => {
                 Sofia
               </span>
               <span
+                className="firstRowItem"
                 onClick={() => {
                   setLocation("plovdiv");
                   setLoadNewData(!loadNewData);
@@ -164,6 +166,7 @@ const MainContainer = () => {
                 Plovdiv
               </span>
               <span
+                className="firstRowItem"
                 onClick={() => {
                   setLocation("varna");
                   setLoadNewData(!loadNewData);
@@ -172,6 +175,7 @@ const MainContainer = () => {
                 Varna
               </span>
               <span
+                className="firstRowItem"
                 onClick={() => {
                   setLocation("burgas");
                   setLoadNewData(!loadNewData);
@@ -180,6 +184,7 @@ const MainContainer = () => {
                 Burgas
               </span>
               <span
+                className="firstRowItem"
                 onClick={() => {
                   setLocation("madan");
                   setLoadNewData(!loadNewData);
@@ -195,7 +200,7 @@ const MainContainer = () => {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   onKeyPress={getData}
-                  className="secondRowInput"
+                  className="secondRowInput "
                 ></input>
                 <div className="secondRowIconWrapper">
                   <div
@@ -203,12 +208,13 @@ const MainContainer = () => {
                     className="secondRowSearchIcon"
                   >
                     {" "}
-                    <SearchIcon fontSize="small" />
+                    <SearchIcon className="secondRowItem" fontSize="small" />
                   </div>
                 </div>
               </div>
               <div className="secondRowDegreeWrapper">
                 <div
+                  className="secondRowItem"
                   style={{ color: cyanDegree ? "white" : "cyan" }}
                   onClick={() => {
                     setUnit("metric");
@@ -216,9 +222,10 @@ const MainContainer = () => {
                     setLoadNewData(!loadNewData);
                   }}
                 >
-                  °C |
+                  °C <span className="seventhRowSpan">|</span>
                 </div>
                 <div
+                  className="secondRowItem"
                   onClick={() => {
                     setUnit("imperial");
                     setCyanDegree(true);
@@ -276,21 +283,42 @@ const MainContainer = () => {
               <div className="sixthRowThird">
                 <div className="sixthRowThirdFirstROw">
                   <ThermostatIcon fontSize="small" />
-                  <div style={{ paddingLeft: "3%", fontWeight: 700 }}>
+                  <div
+                    className="sixthRowFontWeightItems"
+                    style={{ paddingLeft: "3%", fontWeight: 700 }}
+                  >
                     {" "}
                     Really feel:
                   </div>
-                  <div style={{ fontWeight: 700 }}>
+                  <div
+                    className="sixthRowFontWeightItems"
+                    style={{ fontWeight: 700 }}
+                  >
                     {data.main ? (
-                      <p> {data.main.feels_like.toFixed()}°</p>
+                      <p className="sixthRowFontWeightItems">
+                        {" "}
+                        {data.main.feels_like.toFixed()}°
+                      </p>
                     ) : null}{" "}
                   </div>
                 </div>
                 <div className="sixthRowThirdFirstROw">
                   <OpacityIcon fontSize="small" />
-                  <div style={{ fontWeight: 700 }}>Humidity:</div>
-                  <div style={{ fontWeight: 700 }}>
-                    {data.main ? <p>{data.main.humidity.toFixed()}%</p> : null}{" "}
+                  <div
+                    className="sixthRowFontWeightItems"
+                    style={{ fontWeight: 700 }}
+                  >
+                    Humidity:
+                  </div>
+                  <div
+                    className="sixthRowFontWeightItems"
+                    style={{ fontWeight: 700 }}
+                  >
+                    {data.main ? (
+                      <p className="sixthRowFontWeightItems">
+                        {data.main.humidity.toFixed()}%
+                      </p>
+                    ) : null}{" "}
                   </div>
                 </div>
                 <div
@@ -298,12 +326,23 @@ const MainContainer = () => {
                   className="sixthRowThirdFirstROw"
                 >
                   <AirIcon fontSize="small" />
-                  <div style={{ paddingLeft: "2.5%", fontWeight: 700 }}>
+                  <div
+                    className="sixthRowFontWeightItems"
+                    style={{ fontWeight: 700 }}
+                  >
                     Wind speed:
                   </div>
 
-                  <div style={{ fontWeight: 700 }}>
-                    {data.main ? <p> {data.wind.speed.toFixed()}%</p> : null}{" "}
+                  <div
+                    className="sixthRowFontWeightItems"
+                    style={{ fontWeight: 700 }}
+                  >
+                    {data.main ? (
+                      <p className="sixthRowFontWeightItems">
+                        {" "}
+                        {data.wind.speed.toFixed()}%
+                      </p>
+                    ) : null}{" "}
                   </div>
                 </div>
               </div>
@@ -317,6 +356,7 @@ const MainContainer = () => {
               <WbTwilightIcon className="ItemOfSeventhRow" fontSize="small" />
               <span className="ItemOfSeventhRow">
                 <span className="ItemOfSeventhRow ">Set:</span> {sSet}{" "}
+                <span className="ItemOfSeventhRow seventhRowSpan ">|</span>
                 <span className="ItemOfSeventhRow seventhRowSpan"></span>
               </span>
               <LightModeIcon fontSize="small" />

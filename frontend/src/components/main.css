@@ -5,6 +5,12 @@
   .ItemOfSeventhRow {
     font-size: 8px;
   }
+  .sixthRowFontWeightItems {
+    font-size: 7px;
+  }
+  .secondRowItem {
+    font-size: 17px;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -17,6 +23,9 @@
   .ItemOfSeventhRow {
     font-size: 7px;
   }
+  .sixthRowFontWeightItems {
+    font-size: 6px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -25,6 +34,9 @@
   }
   .fourthRowItem {
     font-size: 25px;
+  }
+  .sixthRowFontWeightItems {
+    font-size: 5px;
   }
 }
 @media only screen and (max-width: 720px) {
@@ -40,6 +52,12 @@
   .seventhRowSpan {
     display: none;
   }
+  .firstRowItem {
+    font-size: 10px;
+  }
+  .secondRowItem {
+    font-size: 1px;
+  }
 }
 @media only screen and (max-width: 600px) {
   * {
@@ -49,12 +67,18 @@
     font-size: 18;
   }
 }
+.secondRowItem {
+  font-size: 1px;
+}
 @media only screen and (max-width: 500px) {
   * {
     font-size: 11px;
   }
   .fourthRowItem {
     font-size: 15px;
+  }
+  .firstRowItem {
+    font-size: 8px;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -64,13 +88,23 @@
   .fourthRowItem {
     font-size: 12px;
   }
+  .firstRowItem {
+    font-size: 7px;
+  }
+  .secondRowItem {
+    font-size: 5px;
+  }
 }
+
 @media only screen and (max-width: 300px) {
   * {
     font-size: 7px;
   }
   .fourthRowItem {
     font-size: 8px;
+  }
+  .firstRowItem {
+    font-size: 6px;
   }
 }
 @media only screen and (max-width: 200px) {
@@ -97,17 +131,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background: #ff5f6d; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #ffc371,
-    #ff5f6d
-  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to left,
-    #ffc371,
-    #ff5f6d
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    150deg,
+    #0f6784,
+    #006687,
+    #00628f,
+    #005d9b,
+    #0055a5,
+    #004baa,
+    #0042ab,
+    #10388d
+  );
 }
 .contentWrapper {
   min-height: 77vh;
@@ -150,10 +184,13 @@
   display: flex;
   flex-direction: row;
 }
+.secondRowItem {
+  font-size: 1em;
+}
 .secondRowDegreeWrapper {
   flex: 0.3;
   justify-content: center;
-
+  font-size: 1em;
   align-items: center;
   display: flex;
   flex-direction: row;
