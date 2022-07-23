@@ -472,7 +472,7 @@ const MainContainer = () => {
                   }}
                   className="tenthRowColumnIcon"
                 ></div>
-                <div className="tenthRowColumnTime">
+                <div className="tenthRowColumnDegree">
                   {" "}
                   {hourlyData.cod ? (
                     <div>{hourlyData.list[0].main.temp.toFixed()}°</div>
@@ -494,7 +494,7 @@ const MainContainer = () => {
                   }}
                   className="tenthRowColumnIcon"
                 ></div>
-                <div className="tenthRowColumnTime">
+                <div className="tenthRowColumnDegree">
                   {" "}
                   {hourlyData.cod ? (
                     <div>{hourlyData.list[7].main.temp.toFixed()}°</div>
@@ -516,7 +516,7 @@ const MainContainer = () => {
                   }}
                   className="tenthRowColumnIcon"
                 ></div>
-                <div className="tenthRowColumnTime">
+                <div className="tenthRowColumnDegree">
                   {" "}
                   {hourlyData.cod ? (
                     <div>{hourlyData.list[15].main.temp.toFixed()}°</div>
@@ -538,7 +538,7 @@ const MainContainer = () => {
                   }}
                   className="tenthRowColumnIcon"
                 ></div>
-                <div className="tenthRowColumnTime">
+                <div className="tenthRowColumnDegree">
                   {" "}
                   {hourlyData.cod ? (
                     <div>{hourlyData.list[23].main.temp.toFixed()}°</div>
@@ -560,7 +560,7 @@ const MainContainer = () => {
                   }}
                   className="tenthRowColumnIcon"
                 ></div>
-                <div className="tenthRowColumnTime">
+                <div className="tenthRowColumnDegree">
                   {" "}
                   {hourlyData.cod ? (
                     <div>{hourlyData.list[31].main.temp.toFixed()}°</div>

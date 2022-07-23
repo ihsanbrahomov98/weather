@@ -162,8 +162,6 @@
   justify-content: start;
   align-items: center;
   width: 80%;
-
-  padding-bottom: 2%;
 }
 .ninethRow {
   flex: 1;
@@ -188,6 +186,7 @@
 }
 .tenthRowColumn {
   display: flex;
+
   flex-direction: column;
   justify-content: space-around;
   align-items: space-around;
@@ -198,11 +197,17 @@
 .tenthRowColumnDegree {
   font-size: 0.7em;
   font-weight: 700;
+  padding-top: 5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .tenthRowColumnIcon {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
+  padding-top: 5%;
   width: 100%;
 }
