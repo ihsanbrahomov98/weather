@@ -9,6 +9,7 @@ import AirIcon from "@mui/icons-material/Air";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import "./main.css";
 import { DateTime } from "luxon";
+import { width } from "@mui/system";
 
 const MainContainer = () => {
   const [data, setData] = useState({});
@@ -17,6 +18,13 @@ const MainContainer = () => {
   const [loadNewData, setLoadNewData] = useState(false);
   const [cyanDegree, setCyanDegree] = useState("cyan");
   const [unit, setUnit] = useState("metric");
+  const [backGroundPropperty, setBackGroundPropperty] = useState({
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%",
+  });
   const API_KEY = "&appid=ce31168210cef5b45f6882a250d98bd3";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}${API_KEY}&units=${unit}`;
   const hourlyDataUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}${API_KEY}&units=${unit}`;
@@ -41,7 +49,7 @@ const MainContainer = () => {
       });
     };
     getAxiosData();
-  }, []);
+  }, [loadNewData]);
 
   const getData = (e) => {
     if (e.key === "Enter") {
@@ -66,6 +74,72 @@ const MainContainer = () => {
 
   let sRise = convertTime(data.main ? data.sys.sunrise : null, data.timezone);
   let sSet = convertTime(data.main ? data.sys.sunset : null, data.timezone);
+
+  let firstHourlyData = hourlyData.cod
+    ? hourlyData.list[0].dt_txt.split(" ")
+    : null;
+  let firstHourlyDateInfo = hourlyData.cod
+    ? firstHourlyData[1].slice(0, 5)
+    : null;
+
+  let secondHourlyData = hourlyData.cod
+    ? hourlyData.list[1].dt_txt.split(" ")
+    : null;
+  let secondHourlyDateInfo = hourlyData.cod
+    ? secondHourlyData[1].slice(0, 5)
+    : null;
+
+  let thirdHourlyData = hourlyData.cod
+    ? hourlyData.list[2].dt_txt.split(" ")
+    : null;
+  let thirdHourlyDateInfo = hourlyData.cod
+    ? thirdHourlyData[1].slice(0, 5)
+    : null;
+
+  let fourthdHourlyData = hourlyData.cod
+    ? hourlyData.list[3].dt_txt.split(" ")
+    : null;
+  let fourthdHourlyDateInfo = hourlyData.cod
+    ? fourthdHourlyData[1].slice(0, 5)
+    : null;
+  let fifthdHourlyData = hourlyData.cod
+    ? hourlyData.list[4].dt_txt.split(" ")
+    : null;
+  let fifthhdHourlyDateInfo = hourlyData.cod
+    ? fifthdHourlyData[1].slice(0, 5)
+    : null;
+
+  let firstDailyData = hourlyData.cod
+    ? hourlyData.list[0].dt_txt.split(" ")
+    : null;
+  let firstDailyDataInfo = hourlyData.cod
+    ? firstDailyData[0].slice(5, 10)
+    : null;
+
+  let secondDailyData = hourlyData.cod
+    ? hourlyData.list[7].dt_txt.split(" ")
+    : null;
+  let secondDailyDataInfo = hourlyData.cod
+    ? secondDailyData[0].slice(5, 10)
+    : null;
+  let thirdDailyData = hourlyData.cod
+    ? hourlyData.list[15].dt_txt.split(" ")
+    : null;
+  let thirdDailyDataInfo = hourlyData.cod
+    ? thirdDailyData[0].slice(5, 10)
+    : null;
+  let fourthDailyData = hourlyData.cod
+    ? hourlyData.list[23].dt_txt.split(" ")
+    : null;
+  let fourthDailyDataInfo = hourlyData.cod
+    ? fourthDailyData[0].slice(5, 10)
+    : null;
+  let fifthhDailyData = hourlyData.cod
+    ? hourlyData.list[31].dt_txt.split(" ")
+    : null;
+  let fifthDailyDataInfo = hourlyData.cod
+    ? fifthhDailyData[0].slice(5, 10)
+    : null;
 
   return (
     <>
@@ -249,8 +323,23 @@ const MainContainer = () => {
             </div>
             <div className="tenthRow">
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime"></div>
-                <div className="tenthRowColumnIcon">icon</div>
+                <div className="tenthRowColumnTime">
+                  {" "}
+                  {hourlyData.cod ? <div>{firstHourlyDateInfo}</div> : null}
+                </div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[0].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
                 <div className="tenthRowColumnDegree">
                   {" "}
                   {hourlyData.cod ? (
@@ -259,24 +348,96 @@ const MainContainer = () => {
                 </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnIcon">icon</div>
-                <div className="tenthRowColumnDegree">04:00</div>
+                <div className="tenthRowColumnTime">{secondHourlyDateInfo}</div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[1].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
+                <div className="tenthRowColumnDegree">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[1].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnIcon">icon</div>
-                <div className="tenthRowColumnDegree">04:00</div>
+                <div className="tenthRowColumnTime">{thirdHourlyDateInfo}</div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[2].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
+                <div className="tenthRowColumnDegree">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[2].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnIcon">icon</div>
-                <div className="tenthRowColumnDegree">04:00</div>
+                <div className="tenthRowColumnTime">
+                  {fourthdHourlyDateInfo}
+                </div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[3].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
+                <div className="tenthRowColumnDegree">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[3].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
-                <div className="tenthRowColumnIcon">icon</div>
-                <div className="tenthRowColumnDegree">04:00</div>
+                <div className="tenthRowColumnTime">
+                  {fifthhdHourlyDateInfo}
+                </div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[4].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
+                <div className="tenthRowColumnDegree">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[4].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
             </div>
             <div className="eightRow">DAILY FORECAST</div>
@@ -285,29 +446,54 @@ const MainContainer = () => {
             </div>
             <div className="tenthRow">
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">{firstDailyDataInfo}</div>
                 <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[0].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">{secondDailyDataInfo}</div>
                 <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[7].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">{thirdDailyDataInfo} </div>
                 <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[15].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">{fourthDailyDataInfo}</div>
                 <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[23].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">{fifthDailyDataInfo}</div>
                 <div className="tenthRowColumnTime">icon</div>
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[31].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
             </div>
           </div>
