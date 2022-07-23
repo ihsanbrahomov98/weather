@@ -79,18 +79,19 @@
 }
 .thirdRow {
   flex: 1;
+
   display: flex;
   color: white;
-  justify-content: space-around;
-  align-items: space-around;
+  justify-content: center;
+  align-items: center;
   width: 80%;
 }
 .fourthRow {
   flex: 1;
   display: flex;
   color: white;
-  justify-content: space-around;
-  align-items: space-around;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   font-size: 2em;
 }

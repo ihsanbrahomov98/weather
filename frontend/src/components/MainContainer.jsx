@@ -8,6 +8,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import AirIcon from "@mui/icons-material/Air";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import "./main.css";
+import { DateTime } from "luxon";
 
 const MainContainer = () => {
   const [data, setData] = useState({});
@@ -38,10 +39,9 @@ const MainContainer = () => {
     }
   };
 
-  const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()} ${current.getHours()} ${current.getMinutes()}  `;
+  const date = DateTime.now().toFormat("dd MMMM, yyyy");
+  const hour = DateTime.now().toObject().hour;
+  const minute = DateTime.now().toObject().minute;
 
   return (
     <>
@@ -140,10 +140,15 @@ const MainContainer = () => {
               </div>
             </div>
             <div className="thirdRow">
-              <p>{date} </p>
+              <p> {date} | </p>
+              <span>&nbsp;</span> <p> {hour}:</p>
+              <p>{minute} </p>
+              <p></p>
             </div>
             <div className="fourthRow">
-              <p>{data.name}</p>
+              <p>{data.name},</p>
+              <span>&nbsp;</span>
+              <span> {data.sys ? <p>{data.sys.country}</p> : null}</span>
             </div>
             <div className="fifthRow">
               {" "}
