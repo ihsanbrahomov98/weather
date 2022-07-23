@@ -12,13 +12,16 @@ import { DateTime } from "luxon";
 
 const MainContainer = () => {
   const [data, setData] = useState({});
+  const [hourlyData, setHourlyData] = useState({});
   const [location, setLocation] = useState("plovdiv");
   const [loadNewData, setLoadNewData] = useState(false);
   const [cyanDegree, setCyanDegree] = useState("cyan");
   const [unit, setUnit] = useState("metric");
   const API_KEY = "&appid=ce31168210cef5b45f6882a250d98bd3";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}${API_KEY}&units=${unit}`;
+  const hourlyDataUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}${API_KEY}&units=${unit}`;
 
+  // current weather
   useEffect(() => {
     const getAxiosData = () => {
       axios.get(url).then((response) => {
@@ -28,6 +31,17 @@ const MainContainer = () => {
     };
     getAxiosData();
   }, [loadNewData]);
+  // hourly weather
+  useEffect(() => {
+    const getAxiosData = () => {
+      axios.get(hourlyDataUrl).then((response) => {
+        setHourlyData(response.data);
+        console.log("big data");
+        console.log(response.data);
+      });
+    };
+    getAxiosData();
+  }, []);
 
   const getData = (e) => {
     if (e.key === "Enter") {
@@ -42,6 +56,16 @@ const MainContainer = () => {
   const date = DateTime.now().toFormat("dd MMMM, yyyy");
   const hour = DateTime.now().toObject().hour;
   const minute = DateTime.now().toObject().minute;
+  const convertTime = (unixTime, offset) => {
+    let dt = new Date((unixTime + offset) * 1000);
+    let h = dt.getHours() - 3;
+    let m = "0" + dt.getMinutes();
+    let t = h + ":" + m.substr(-2);
+    return t;
+  };
+
+  let sRise = convertTime(data.main ? data.sys.sunrise : null, data.timezone);
+  let sSet = convertTime(data.main ? data.sys.sunset : null, data.timezone);
 
   return (
     <>
@@ -199,14 +223,12 @@ const MainContainer = () => {
             </div>
             <div className="seventhRow">
               <LightModeIcon fontSize="small" />
-              <span>
-                Rise: {data.main ? <span> {data.sys.sunrise}</span> : null} |
-              </span>
+              <span>Rise: {sRise} |</span>
               <WbTwilightIcon fontSize="small" />
-              <span>Set: 04:50 |</span>
+              <span>Set: {sSet} |</span>
               <LightModeIcon fontSize="small" />
               <span>
-                Rise:{" "}
+                High:{" "}
                 {data.main ? (
                   <span> {data.main.temp_max.toFixed()}°</span>
                 ) : null}{" "}
@@ -214,7 +236,7 @@ const MainContainer = () => {
               </span>
               <LightModeIcon fontSize="small" />
               <span>
-                Rise:{" "}
+                Low:{" "}
                 {data.main ? (
                   <span> {data.main.temp_min.toFixed()}°</span>
                 ) : null}{" "}
@@ -227,9 +249,14 @@ const MainContainer = () => {
             </div>
             <div className="tenthRow">
               <div className="tenthRowColumn">
-                <div className="tenthRowColumnTime">04:00</div>
+                <div className="tenthRowColumnTime"></div>
                 <div className="tenthRowColumnIcon">icon</div>
-                <div className="tenthRowColumnDegree">04:00</div>
+                <div className="tenthRowColumnDegree">
+                  {" "}
+                  {hourlyData.cod ? (
+                    <div>{hourlyData.list[0].main.temp.toFixed()}°</div>
+                  ) : null}
+                </div>
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">04:00</div>
