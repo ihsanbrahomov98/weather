@@ -109,20 +109,28 @@
   flex: 1;
   display: flex;
   color: white;
-
   justify-content: space-around;
   align-items: center;
   width: 80%;
 }
+.sixthRowOne {
+  flex: 1.7;
+
+  display: flex;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .sixthRowCircle {
-  height: 25px;
-  width: 25px;
-  background-color: #e76140;
-  border-radius: 50%;
-  display: inline-block;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 5rem;
+  width: 5rem;
 }
 .sixthRowTwo {
   font-size: 2rem;
+  flex: 1;
 }
 .sixthRowThird {
   display: flex;
@@ -130,6 +138,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 .sixthRowThirdFirstROw {
   display: flex;

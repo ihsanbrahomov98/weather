@@ -253,8 +253,20 @@ const MainContainer = () => {
               {data.weather ? <p>{data.weather[0].description}</p> : null}
             </div>
             <div className="sixthRow">
-              <div className="sixthRowFirst">
-                <div className="sixthRowCircle"></div>
+              <div className="sixthRowOne">
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[0].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="sixthRowCircle"
+                ></div>
               </div>
               <div className="sixthRowTwo">
                 {" "}
@@ -285,7 +297,7 @@ const MainContainer = () => {
                   className="sixthRowThirdFirstROw"
                 >
                   <AirIcon fontSize="small" />
-                  <div style={{ paddingLeft: "4%", fontWeight: 700 }}>
+                  <div style={{ paddingLeft: "2.5%", fontWeight: 700 }}>
                     Wind speed:
                   </div>
 
@@ -447,7 +459,19 @@ const MainContainer = () => {
             <div className="tenthRow">
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">{firstDailyDataInfo}</div>
-                <div className="tenthRowColumnTime">icon</div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[0].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
                 <div className="tenthRowColumnTime">
                   {" "}
                   {hourlyData.cod ? (
@@ -457,7 +481,19 @@ const MainContainer = () => {
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">{secondDailyDataInfo}</div>
-                <div className="tenthRowColumnTime">icon</div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[7].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
                 <div className="tenthRowColumnTime">
                   {" "}
                   {hourlyData.cod ? (
@@ -467,7 +503,19 @@ const MainContainer = () => {
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">{thirdDailyDataInfo} </div>
-                <div className="tenthRowColumnTime">icon</div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[15].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
                 <div className="tenthRowColumnTime">
                   {" "}
                   {hourlyData.cod ? (
@@ -477,7 +525,19 @@ const MainContainer = () => {
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">{fourthDailyDataInfo}</div>
-                <div className="tenthRowColumnTime">icon</div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[23].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
                 <div className="tenthRowColumnTime">
                   {" "}
                   {hourlyData.cod ? (
@@ -487,7 +547,19 @@ const MainContainer = () => {
               </div>
               <div className="tenthRowColumn">
                 <div className="tenthRowColumnTime">{fifthDailyDataInfo}</div>
-                <div className="tenthRowColumnTime">icon</div>
+                <div
+                  style={{
+                    backgroundImage:
+                      "url(" +
+                      `http://openweathermap.org/img/wn/${
+                        hourlyData.cod
+                          ? hourlyData.list[31].weather[0].icon
+                          : null
+                      }@2x.png` +
+                      ")",
+                  }}
+                  className="tenthRowColumnIcon"
+                ></div>
                 <div className="tenthRowColumnTime">
                   {" "}
                   {hourlyData.cod ? (
