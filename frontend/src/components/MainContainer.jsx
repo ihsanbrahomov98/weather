@@ -206,10 +206,6 @@ const MainContainer = () => {
                     <SearchIcon fontSize="small" />
                   </div>
                 </div>
-                <div className="secondLocationOnIcon">
-                  {" "}
-                  <LocationOnIcon fontSize="small" />
-                </div>
               </div>
               <div className="secondRowDegreeWrapper">
                 <div
@@ -244,9 +240,14 @@ const MainContainer = () => {
               <p></p>
             </div>
             <div className="fourthRow">
-              <p>{data.name},</p>
+              <p className="fourthRowItem">{data.name},</p>
               <span>&nbsp;</span>
-              <span> {data.sys ? <p>{data.sys.country}</p> : null}</span>
+              <span className="fourthRowItem">
+                {" "}
+                {data.sys ? (
+                  <p className="fourthRowItem">{data.sys.country}</p>
+                ) : null}
+              </span>
             </div>
             <div className="fifthRow">
               {" "}
@@ -308,25 +309,37 @@ const MainContainer = () => {
               </div>
             </div>
             <div className="seventhRow">
-              <LightModeIcon fontSize="small" />
-              <span>Rise: {sRise} |</span>
-              <WbTwilightIcon fontSize="small" />
-              <span>Set: {sSet} |</span>
-              <LightModeIcon fontSize="small" />
-              <span>
-                High:{" "}
-                {data.main ? (
-                  <span> {data.main.temp_max.toFixed()}°</span>
-                ) : null}{" "}
-                |
+              <LightModeIcon className="ItemOfSeventhRow" fontSize="small" />
+              <span className="ItemOfSeventhRow">
+                <span className="ItemOfSeventhRow">Rise:</span> {sRise}{" "}
+                <span className="ItemOfSeventhRow seventhRowSpan">|</span>
+              </span>
+              <WbTwilightIcon className="ItemOfSeventhRow" fontSize="small" />
+              <span className="ItemOfSeventhRow">
+                <span className="ItemOfSeventhRow ">Set:</span> {sSet}{" "}
+                <span className="ItemOfSeventhRow seventhRowSpan"></span>
               </span>
               <LightModeIcon fontSize="small" />
-              <span>
+              <span className="ItemOfSeventhRow">
+                <span className="ItemOfSeventhRow">High:</span>
+                {data.main ? (
+                  <span className="ItemOfSeventhRow">
+                    {" "}
+                    {data.main.temp_max.toFixed()}°
+                  </span>
+                ) : null}{" "}
+                <span className="ItemOfSeventhRow seventhRowSpan"> | </span>
+              </span>
+              <LightModeIcon className="ItemOfSeventhRow" fontSize="small" />
+              <span className="ItemOfSeventhRow">
                 Low:{" "}
                 {data.main ? (
-                  <span> {data.main.temp_min.toFixed()}°</span>
+                  <span className="ItemOfSeventhRow">
+                    {" "}
+                    {data.main.temp_min.toFixed()}°
+                  </span>
                 ) : null}{" "}
-                |
+                <span className="ItemOfSeventhRow seventhRowSpan"> | </span>
               </span>
             </div>
             <div className="eightRow">HOURLY FORECAST</div>
