@@ -15,6 +15,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "heroku": "^7.60.2",
+    "heroku-client": "^3.1.0",
     "luxon": "^3.0.1",
     "moment": "^2.29.3",
     "polished": "^4.2.2",
