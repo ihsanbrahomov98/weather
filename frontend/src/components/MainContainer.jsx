@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -9,14 +8,14 @@ import AirIcon from "@mui/icons-material/Air";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import "./main.css";
 import { DateTime } from "luxon";
-import { width } from "@mui/system";
+import { API_KEY } from "./Service";
 
 const MainContainer = () => {
   const [data, setData] = useState({});
   const [hourlyData, setHourlyData] = useState({});
   const [location, setLocation] = useState("plovdiv");
   const [loadNewData, setLoadNewData] = useState(false);
-  const [cyanDegree, setCyanDegree] = useState("cyan");
+  const [cyanDegree, setCyanDegree] = useState(false);
   const [unit, setUnit] = useState("metric");
   const [backGroundPropperty, setBackGroundPropperty] = useState({
     backgroundPosition: "center",
@@ -25,7 +24,7 @@ const MainContainer = () => {
     height: "100%",
     width: "100%",
   });
-  const API_KEY = "&appid=ce31168210cef5b45f6882a250d98bd3";
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}${API_KEY}&units=${unit}`;
   const hourlyDataUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}${API_KEY}&units=${unit}`;
 
@@ -34,7 +33,6 @@ const MainContainer = () => {
     const getAxiosData = () => {
       axios.get(url).then((response) => {
         setData(response.data);
-        console.log(response.data);
       });
     };
     getAxiosData();
@@ -44,23 +42,20 @@ const MainContainer = () => {
     const getAxiosData = () => {
       axios.get(hourlyDataUrl).then((response) => {
         setHourlyData(response.data);
-        console.log("big data");
-        console.log(response.data);
       });
     };
     getAxiosData();
   }, [loadNewData]);
-
+  // enter data check(search icon click)
   const getData = (e) => {
     if (e.key === "Enter") {
       axios.get(url).then((response) => {
         setData(response.data);
-        console.log(response.data);
       });
       setLocation("");
     }
   };
-
+  // formating dates for the UI
   const date = DateTime.now().toFormat("dd MMMM, yyyy");
   const hour = DateTime.now().toObject().hour;
   const minute = DateTime.now().toObject().minute;
